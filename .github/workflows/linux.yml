@@ -16,7 +16,7 @@ jobs:
       run: sudo apt-get install ninja-build
 
     - name: Configure
-      run: mkdir build && cd build && cmake -G Ninja -D NNG_ENABLE_TLS=ON --config Release ..
+      run: mkdir build && cd build && cmake -G Ninja -D NNG_ENABLE_TLS=ON -D CMAKE_BUILD_TYPE=Release ..
 
     - name: Build
       run: cd build && ninja
