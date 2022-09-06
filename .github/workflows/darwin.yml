@@ -18,5 +18,7 @@ jobs:
     - name: build
       run: cd build && ninja
 
-    - name: Test
-      run: cd build && ctest --output-on-failure
+    - uses: actions/upload-artifact@v3
+      with:
+        name: nng-macos
+        path: build/*

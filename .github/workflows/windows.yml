@@ -15,8 +15,8 @@ jobs:
     - name: Build
       run: cmake --build build
 
-    - name: Test
-      run: |
-        cd build
-        ctest -C Debug --output-on-failure
+    - uses: actions/upload-artifact@v3
+      with:
+        name: nng-win
+        path: build/*
 
