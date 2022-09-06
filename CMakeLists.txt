@@ -78,6 +78,8 @@ if (NOT (BUILD_SHARED_LIBS))
     message(STATUS "Building static libs.")
 endif ()
 
+set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE INTERNAL "")
+
 # These are library targets.  The "nng" library is the main public library.
 # The "nng_testing" is a full build of the library for test cases
 # only, which is done statically and includes even portions of the code
