@@ -16,7 +16,7 @@ jobs:
       run: sudo apt-get install ninja-build
 
     - name: Configure
-      run: mkdir build && cd build && cmake -G Ninja -D NNG_ENABLE_TLS=ON ..
+      run: mkdir build && cd build && cmake -G Ninja -D NNG_ENABLE_TLS=ON --config Release ..
 
     - name: Build
       run: cd build && ninja
@@ -24,4 +24,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: nng-linux
-        path: build/*
+        path: build/libnng.a
