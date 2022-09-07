@@ -85,6 +85,15 @@ if (WIN32)
     set(CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
 endif ()
 
+if (UNIX OR APPLE)
+    add_compile_options(-fexceptions -fpermissive)
+    add_compile_options(-fvisibility=hidden)
+    add_compile_options(-Wall -Wshadow -Wfloat-equal -Wextra)
+    add_compile_options(-Wno-unused)
+    add_compile_options(-O3 -fPIC)
+    add_compile_options(-pthread)
+endif()
+
 # These are library targets.  The "nng" library is the main public library.
 # The "nng_testing" is a full build of the library for test cases
 # only, which is done statically and includes even portions of the code
@@ -189,7 +198,6 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
         add_definitions(-DNNG_PLATFORM_WSL)
     endif ()
     set(NNG_PLATFORM_POSIX ON)
-    add_compile_options(-O3 -fPIC)
 
 elseif (CMAKE_SYSTEM_NAME MATCHES "Android")
     add_definitions(-DNNG_PLATFORM_POSIX)
