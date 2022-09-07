@@ -189,6 +189,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
         add_definitions(-DNNG_PLATFORM_WSL)
     endif ()
     set(NNG_PLATFORM_POSIX ON)
+    add_compile_options(-O3 -fPIC)
 
 elseif (CMAKE_SYSTEM_NAME MATCHES "Android")
     add_definitions(-DNNG_PLATFORM_POSIX)
